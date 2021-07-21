@@ -355,7 +355,7 @@ class CardanocliJs {
 
   /**
    *
-   * @param {string} account - Name of account
+   * @param {string} paymentVerificationKey - verification key string
    */
    addressKeyHash_(paymentVerificationKey) {
     if (this.httpProvider && typeof window !== "undefined") {
