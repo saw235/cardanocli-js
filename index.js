@@ -355,6 +355,23 @@ class CardanocliJs {
 
   /**
    *
+   * @param {string} account - Name of account
+   */
+   addressKeyHash_(paymentVerificationKey) {
+    if (this.httpProvider && typeof window !== "undefined") {
+      let response = fetch(`${this.httpProvider}/addressKeyHash`);
+      return response.then((res) => res.text());
+    }
+    return execSync(`${this.cliPath} address key-hash \
+                        --payment-verification-key ${paymentVerificationKey} \
+                    `)
+      .toString()
+      .trim();
+  }
+
+
+  /**
+   *
    * @param {paymentAddr} address
    * @returns {object}
    */
